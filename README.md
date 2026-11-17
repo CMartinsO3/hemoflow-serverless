@@ -125,7 +125,7 @@ Faz sentido gerar a guia de transporte: é uma tarefa curta, que não depende de
 ## 6. Evidências e vídeo
 
 - Prints em `evidencias/` (lista de nomes em `evidencias/LEIA-ME.md`).
-- Vídeo (até 3 min):
+- Vídeo (até 3 min): https://youtu.be/bIjdgODy7ww
 
 ## 7. Uso de IA (PO-CESAR-021)
 
