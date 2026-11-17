@@ -1,0 +1,1 @@
+# sem dependências externas: o handler usa só a biblioteca padrão

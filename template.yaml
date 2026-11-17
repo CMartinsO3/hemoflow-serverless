@@ -1,0 +1,35 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: >
+  Rota Vital - função serverless que gera a guia de transporte de uma requisição
+  (Atividade individual 1 - Infraestrutura de Software, U2).
+
+# Timeout em Globals: o Passo 5 da atividade mexe neste valor (3 -> 10).
+Globals:
+  Function:
+    Timeout: 10
+
+Resources:
+  GuiaTransporteFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: hello_world/
+      Handler: app.lambda_handler
+      Runtime: python3.12
+      Architectures:
+        - x86_64
+      MemorySize: 128
+      Events:
+        GerarGuia:
+          Type: Api
+          Properties:
+            Path: /guias
+            Method: post
+
+Outputs:
+  GuiasApi:
+    Description: "URL do API Gateway (na nuvem) para POST /guias"
+    Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/guias/"
+  GuiaTransporteFunction:
+    Description: "ARN da função Lambda"
+    Value: !GetAtt GuiaTransporteFunction.Arn
